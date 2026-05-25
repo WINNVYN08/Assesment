@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://bs3wvmbjjtfxw"]
+
+[ext_resource type="PackedScene" uid="uid://bdkgiqfbbeoy0" path="res://scenes/player.tscn" id="1_2venv"]
+[ext_resource type="Shader" uid="uid://xxqm8pxqyg1q" path="res://scripts/glass.gdshader" id="2_paw1w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paw1w"]
+albedo_color = Color(1, 0.9843137, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6w7d"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2venv"]
+albedo_color = Color(0.98984355, 5.4869056e-06, 9.62615e-07, 1)
+refraction_scale = 0.32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmr53"]
+albedo_color = Color(0, 0.5527905, 0.5527904, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.32
+emission_enabled = true
+emission_operator = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2venv"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_paw1w"]
+sky_material = SubResource("ProceduralSkyMaterial_2venv")
+
+[sub_resource type="Environment" id="Environment_j6w7d"]
+background_mode = 2
+sky = SubResource("Sky_paw1w")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4b8f"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_paw1w"]
+render_priority = 0
+shader = ExtResource("2_paw1w")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/color_coat = 0.0
+shader_parameter/oilyness = 1.0999999754128
+shader_parameter/rim_amount = 0.0
+shader_parameter/rim_shape = 4.73999989777684
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/roughness = 0.999999977648
+shader_parameter/specular = 0.8
+shader_parameter/refraction_strength = 0.9999999552959999
+shader_parameter/scatter_strength = 2.0
+shader_parameter/tile_size = Vector2(1, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6w7d"]
+render_priority = 0
+shader = ExtResource("2_paw1w")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/color_coat = 0.0
+shader_parameter/oilyness = 0.1
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_shape = 4.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.999999977648
+shader_parameter/refraction_strength = 0.5
+shader_parameter/scatter_strength = 0.0
+shader_parameter/tile_size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4b8f"]
+render_priority = 0
+shader = ExtResource("2_paw1w")
+shader_parameter/color = Color(0.9645633, 0.74573696, 0.7501911, 1)
+shader_parameter/color_coat = 0.0
+shader_parameter/oilyness = 1.07999997585984
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_shape = 4.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.8
+shader_parameter/refraction_strength = 0.999999955296
+shader_parameter/scatter_strength = 0.0
+shader_parameter/tile_size = Vector2(10, 10)
+
+[node name="Node3D" type="Node3D" unique_id=1065389712]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1361023902]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1113.0
+size_flags_horizontal = 4
+stretch = true
+stretch_shrink = 5
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1356807404]
+handle_input_locally = false
+size = Vector2i(384, 222)
+render_target_update_mode = 4
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=750416674]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 50, 0, 50)
+use_collision = true
+size = Vector3(1, 50, 200)
+material = SubResource("StandardMaterial3D_paw1w")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=1982354748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+use_collision = true
+size = Vector3(1, 50, 200)
+material = SubResource("StandardMaterial3D_j6w7d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=996160430]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(1, 1, 0.85490197, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 176.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=1795235613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20654297, 0, -0.56840086)
+layers = 1023
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(200, 10, 200)
+
+[node name="Node3D" parent="SubViewportContainer/SubViewport" unique_id=962017556 instance=ExtResource("1_2venv")]
+transform = Transform3D(0.9999102, -0.01340373, 0, 0.013403728, 0.9999103, 0, 0, 0, 1.0000001, 0, 20, 0)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=1668710732]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -50)
+use_collision = true
+size = Vector3(1, 50, 200)
+material = SubResource("StandardMaterial3D_2venv")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=622343105]
+transform = Transform3D(1, 0, 0, 0, 200, 0, 0, 0, 1, 4.1406426, 5.315143, -3.1634617)
+use_collision = true
+size = Vector3(10, 0.01, 10)
+material = SubResource("StandardMaterial3D_tmr53")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1610267628]
+environment = SubResource("Environment_j6w7d")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=127579385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+use_collision = true
+size = Vector3(1, 50, 200)
+material = SubResource("StandardMaterial3D_x4b8f")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=1649470717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2907443, 8.223335, -25.77087)
+size = Vector3(5, 10, 10)
+material = SubResource("ShaderMaterial_paw1w")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="SubViewportContainer/SubViewport" unique_id=1478276704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.626244, 7.31686, -0.56840086)
+radius = 9.222
+radial_segments = 50
+rings = 60
+material = SubResource("ShaderMaterial_j6w7d")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport" unique_id=1584187272]
+transform = Transform3D(1, 0, 0, 0, 1.1533211, 0, 0, 0, 1, 1.9232635, 6.8475676, 14.911232)
+inner_radius = 8.518
+outer_radius = 6.075
+sides = 64
+ring_sides = 23
+material = SubResource("ShaderMaterial_x4b8f")
