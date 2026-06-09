@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdkgiqfbbeoy0"]
 
 [ext_resource type="Script" uid="uid://dcyaf3v0otwt2" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://5o7qgi0ja5t4" path="res://scripts/node_3d.gd" id="2_dqkch"]
 [ext_resource type="Shader" uid="uid://bm1jgvfjx0ynh" path="res://scripts/pixel.gdshader" id="2_g2els"]
 [ext_resource type="Script" uid="uid://cpayxootmhv8b" path="res://scripts/camera_3d.gd" id="2_qhqgy"]
 
@@ -26,29 +27,39 @@ material = SubResource("ShaderMaterial_qhqgy")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fjrip"]
+material = SubResource("ShaderMaterial_tuyoq")
+size = Vector2(2, 2)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
 
 [node name="Node3D" type="Node3D" unique_id=962017556]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=340993273]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=340993273]
 script = ExtResource("1_3vyb7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1252090304]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1252090304]
 shape = SubResource("ConvexPolygonShape3D_3vyb7")
 
-[node name="Node3D" type="Node3D" parent="CharacterBody3D" unique_id=2060992966]
+[node name="Node3D" type="Node3D" parent="Player" unique_id=2060992966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+script = ExtResource("2_dqkch")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Node3D" unique_id=1430115486]
+[node name="Camera3D" type="Camera3D" parent="Player/Node3D" unique_id=1430115486]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -0.009230614, 0.056952685, -0.03496581)
 script = ExtResource("2_qhqgy")
 
-[node name="post_processing" type="MeshInstance3D" parent="CharacterBody3D/Node3D/Camera3D" unique_id=387220589]
+[node name="post_processing" type="MeshInstance3D" parent="Player/Node3D/Camera3D" unique_id=387220589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009230614, -0.45695275, 0.034965813)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dqkch")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2142370853]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Node3D/Camera3D" unique_id=2124775239]
+mesh = SubResource("QuadMesh_fjrip")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=2142370853]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_qhqgy")

@@ -1,6 +1,7 @@
 @tool
 extends Camera3D
 
+var angles = Vector3.ZERO
 
 @export var post_processing := true:
 	set(p):

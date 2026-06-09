@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var speed
 const WALK_SPEED = 5.0
-const SPRINT_SPEED = 10
+const SPRINT_SPEED = 100
 const JUMP_VELOCITY = 7
 const SENSITIVITY = 0.004
 
@@ -13,11 +13,12 @@ var t_bob = 0
 
 #fov variables
 const BASE_FOV = 75.0
-const FOV_CHANGE = 1.5
+const FOV_CHANGE = 0
 var can_dash = true
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+# Gravity variable
 var gravity = 10
+
 
 @onready var head =$Node3D
 @onready var camera = $Node3D/Camera3D
@@ -72,7 +73,7 @@ func _physics_process(delta):
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
-	print(velocity.y)
+
 	move_and_slide()
 
 
