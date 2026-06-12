@@ -35,6 +35,10 @@ size = Vector2(2, 2)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
+radius = 0.73095703
+height = 2.0961914
+
 [node name="Node3D" type="Node3D" unique_id=962017556]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 
@@ -63,3 +67,9 @@ mesh = SubResource("QuadMesh_fjrip")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=2142370853]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_qhqgy")
+
+[node name="Area3D" type="Area3D" parent="Player" unique_id=1251370679]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D" unique_id=2140038702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015829677, 0)
+shape = SubResource("CapsuleShape3D_dqkch")
