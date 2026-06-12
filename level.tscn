@@ -7,7 +7,7 @@ albedo_color = Color(0.48235294, 0.48235294, 0.48235294, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
 cull_mode = 2
-albedo_color = Color(0.48178947, 0.48178947, 0.48178947, 1)
+albedo_color = Color(0.48235294, 0.48235294, 0.48235294, 1)
 metallic = 1.0
 stencil_flags = 2
 stencil_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
@@ -15,8 +15,10 @@ stencil_outline_thickness = 0.032
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u52ul"]
 cull_mode = 2
+albedo_color = Color(0.48235294, 0.48235294, 0.48235294, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0b4ue"]
+albedo_color = Color(0.48235294, 0.48235294, 0.48235294, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2txt"]
 albedo_color = Color(0.48235294, 0.48235294, 0.48235294, 1)
@@ -46,7 +48,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vonw3")
 
 [node name="Plane_001" parent="." index="2" unique_id=2062611426]
 material_override = SubResource("StandardMaterial3D_u52ul")
-cast_shadow = 2
+cast_shadow = 0
+extra_cull_margin = 16384.0
 surface_material_override/0 = SubResource("StandardMaterial3D_0b4ue")
 
 [node name="Cube" parent="." index="3" unique_id=2061565429]
@@ -66,6 +69,6 @@ shape = SubResource("ConcavePolygonShape3D_oi3di")
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_0b4ue")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube/StaticBody3D2" index="3" unique_id=1905411629]
-transform = Transform3D(21.249075, 0, 0, 0, 0.34042913, 0, 0, 0, 2.1686347, 16.858438, -0.8415321, -1.1689075)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube/StaticBody3D2" index="3" unique_id=681640334]
+transform = Transform3D(21.249075, 0, 0, 0, 0.34042913, 0, 0, 0, 2.1686347, 18.959553, -0.7104499, -1.243568)
 shape = SubResource("ConcavePolygonShape3D_vonw3")
