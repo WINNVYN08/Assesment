@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var speed
 const WALK_SPEED = 5.0
-const SPRINT_SPEED = 10
+const SPRINT_SPEED = 200
 const JUMP_VELOCITY = 7
 const SENSITIVITY = 0.004
 
@@ -13,7 +13,7 @@ var t_bob = 0
 
 #fov variables
 const BASE_FOV = 75.0
-const FOV_CHANGE = 2
+const FOV_CHANGE = 0
 var can_dash = true
 
 # Gravity variable

@@ -126,12 +126,12 @@ offset_right = 1920.0
 offset_bottom = 1113.0
 size_flags_horizontal = 4
 stretch = true
-stretch_shrink = 50
+stretch_shrink = 4
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=757601722]
 handle_input_locally = false
 oversampling_override = 16.0
-size = Vector2i(38, 22)
+size = Vector2i(480, 278)
 render_target_update_mode = 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1928246512]
@@ -166,7 +166,7 @@ material = SubResource("ShaderMaterial_pa8r4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04894638, 0, -0.14628601)
 navigation_mesh = SubResource("NavigationMesh_fcfvj")
 
-[node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1908215111 instance=ExtResource("2_bswci")]
+[node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1704680263 instance=ExtResource("2_bswci")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -38.59337, -22.573112, 0.743592)
 
 [node name="enemy" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1708911494 instance=ExtResource("5_4nkto")]
@@ -190,4 +190,10 @@ material = SubResource("ShaderMaterial_15mv3")
 transform = Transform3D(623.5042, 0, 0, 0, 41.124306, 0, 0, 0, 3.3839679, -38.206623, -12.288212, 6.8397017)
 use_collision = true
 size = Vector3(0.025276303, 0.4039538, 0.12573242)
+material = SubResource("ShaderMaterial_15mv3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=2071639903]
+transform = Transform3D(-9.360563e-07, 0, 1.6521951, 0, 6.7347937, 0, -21.414473, 0, -7.221974e-08, -202.54907, 55.105103, -435.7039)
+use_collision = true
+size = Vector3(9.016121, 29.75299, 10)
 material = SubResource("ShaderMaterial_15mv3")
