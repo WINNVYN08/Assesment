@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dnms0lih62idu"]
+
+[ext_resource type="Script" uid="uid://c6x1csjs6ofjn" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v8qja"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4vbm"]
+metallic = 1.0
+roughness = 0.3
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+emission_on_uv2 = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mkf8s"]
+direction = Vector3(0, 0, 1)
+spread = 113.774
+initial_velocity_min = 2.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -3, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -4.030002
+radial_accel_max = 13.409998
+tangential_accel_min = -7.410002
+tangential_accel_max = 24.689997
+scale_max = 32.489998
+anim_speed_min = 0.42
+anim_speed_max = 1.6899999
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y25gk"]
+albedo_color = Color(1, 1, 0.8627451, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.9764706, 1)
+emission_energy_multiplier = 7.12
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5glv"]
+material = SubResource("StandardMaterial3D_y25gk")
+size = Vector3(0.04, 0.04, 0.04)
+
+[node name="bullet" type="Node3D" unique_id=237493640]
+script = ExtResource("1_v7oki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1156660411]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_v8qja")
+surface_material_override/0 = SubResource("StandardMaterial3D_t4vbm")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1375860439]
+transform = Transform3D(1, 0, 0, 0, -0.99997485, 0.007085964, 0, -0.007085964, -0.99997485, 0, 0, -0.44249803)
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=295341728]
+transform = Transform3D(1, 0, 0, 0, -0.99608904, 0.08835537, 0, -0.08835537, -0.99608904, 0, 0, 0.49215466)
+emitting = false
+amount = 10
+lifetime = 20.0
+interp_to_end = 1.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 29.98
+process_material = SubResource("ParticleProcessMaterial_mkf8s")
+draw_pass_1 = SubResource("BoxMesh_l5glv")

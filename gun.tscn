@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c7owtf2r3klwe"]
+
+[ext_resource type="PackedScene" uid="uid://c2xggcketgp7y" path="res://assets/lugermorph_team_fortress_2.glb" id="1_vk1bi"]
+
+[sub_resource type="Animation" id="Animation_dk5gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1.0000001, 1.0000001)]
+}
+
+[sub_resource type="Animation" id="Animation_vk1bi"]
+resource_name = "shoot"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -5.5001016, -0.023237467), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.53333336),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.62837064, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, -0.5, 1),
+"update": 0,
+"values": [Vector3(1, 1.0000001, 1.0000001), Vector3(1, 0.7885477, 1.2884381), Vector3(1, 1.0000001, 1.0000001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dk5gl"]
+_data = {
+&"RESET": SubResource("Animation_dk5gl"),
+&"shoot": SubResource("Animation_vk1bi")
+}
+
+[node name="Sketchfab_Scene" unique_id=775442374 instance=ExtResource("1_vk1bi")]
+
+[node name="Object_7" parent="Sketchfab_model/root/GLTF_SceneRootNode/c_ttg_max_gun_qc_skeleton_2/GLTF_created_0/Skeleton3D" parent_id_path=PackedInt32Array(466325823) index="0" unique_id=1557471426]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+cast_shadow = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1742897189]
+root_node = NodePath("../Sketchfab_model/root/GLTF_SceneRootNode/c_ttg_max_gun_qc_skeleton_2/GLTF_created_0/Skeleton3D/Object_7")
+libraries/ = SubResource("AnimationLibrary_dk5gl")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="2" unique_id=814043853]
+transform = Transform3D(49.95845, 2.0373287, 0.050097704, 2.0372205, -49.958378, 0.10448542, 0.054313183, -0.102356434, -49.999866, 0, 7.847515, 14.30433)
+target_position = Vector3(0, 0, -1)

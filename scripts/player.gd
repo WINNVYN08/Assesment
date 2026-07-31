@@ -1,28 +1,33 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 200
-const JUMP_VELOCITY = 7
-const SENSITIVITY = 0.004
+const DASH_SPEED = 60
+const WALK_SPEED = 30
+const SPRINT_SPEED = 100
+const JUMP_VELOCITY = 12
+const SENSITIVITY = 0.009
 
 #bob variables
-const BOB_FREQ = 1.4
-const BOB_AMP = 0.1
+const BOB_FREQ = 0.4
+const BOB_AMP = 0.15
 var t_bob = 0
 
 #fov variables
 const BASE_FOV = 75.0
-const FOV_CHANGE = 0
+const FOV_CHANGE = 0.5
 var can_dash = true
 
 # Gravity variable
-var gravity = 10
+var gravity = 20
+var weight = 60
 
+var bullet = load("res://scenes/bullet.tscn")
+var instance
 
 @onready var head =$Node3D
 @onready var camera = $Node3D/Camera3D
-
+@onready var gun_animation = $Node3D/Camera3D/Sketchfab_Scene/AnimationPlayer
+@onready var gun_ray = $Node3D/Camera3D/Sketchfab_Scene/RayCast3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -37,6 +42,16 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("shoot"):
+		if !gun_animation.is_playing():
+			gun_animation.play("shoot")
+			instance = bullet.instantiate()
+			instance.position = gun_ray.global_position
+			instance.transform.basis = gun_ray.global_transform.basis
+			get_parent().add_child(instance)
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -56,14 +71,14 @@ func _physics_process(delta):
 	var direction = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			velocity.x = lerp(velocity.x, direction.x * speed, delta *4)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 4)
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3) 
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * 1)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * 1)
 	
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())

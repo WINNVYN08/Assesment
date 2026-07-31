@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cub8wgikebxr"]
+
+[ext_resource type="Texture2D" uid="uid://cqyrcv0qndy8b" path="res://assets/Rectangle 2.png" id="1_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://dlwmi1lktxqkj" path="res://assets/Rectangle 3.png" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://5ek25kxv7f5t" path="res://assets/Rectangle 7.png" id="3_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dt5mc43ht3h7x" path="res://assets/Rectangle 5.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://vln0olhh5stp" path="res://assets/Rectangle 1.png" id="5_4d7sh"]
+
+[node name="Node2D" type="Node2D" unique_id=689230186]
+
+[node name="Rectangle2" type="Sprite2D" parent="." unique_id=1332226602]
+position = Vector2(507, 178)
+texture = ExtResource("1_q6r6c")
+
+[node name="Rectangle3" type="Sprite2D" parent="." unique_id=209277487]
+position = Vector2(411.5, 178.5)
+texture = ExtResource("2_kdubu")
+
+[node name="Rectangle7" type="Sprite2D" parent="." unique_id=861539182]
+position = Vector2(923.5, 178.5)
+texture = ExtResource("3_d21ai")
+
+[node name="Rectangle5" type="Sprite2D" parent="." unique_id=141163726]
+position = Vector2(539.5, 178.5)
+texture = ExtResource("4_rj586")
+
+[node name="Rectangle9" type="Sprite2D" parent="." unique_id=109353445]
+position = Vector2(667.5, 178.5)
+texture = ExtResource("4_rj586")
+
+[node name="Rectangle10" type="Sprite2D" parent="." unique_id=1078759058]
+position = Vector2(795.5, 178.5)
+texture = ExtResource("4_rj586")
+
+[node name="Rectangle1" type="Sprite2D" parent="." unique_id=1786173556]
+position = Vector2(507.99997, 288)
+scale = Vector2(1.5280899, 1)
+texture = ExtResource("5_4d7sh")
+
+[node name="Label" type="Label" parent="." unique_id=722901904]
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 367.0
+offset_bottom = 353.0
+rotation = -0.021034803
+theme_override_font_sizes/font_size = 125
+text = "100/"
+
+[node name="Label2" type="Label" parent="." unique_id=1710831447]
+offset_left = 264.0
+offset_top = 200.0
+offset_right = 350.0
+offset_bottom = 341.0
+rotation = -1.2575978
+theme_override_font_sizes/font_size = 50
+text = "100
+"
+
+[node name="Label3" type="Label" parent="." unique_id=384146840]
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 193.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 40
+text = "HEALTH"
