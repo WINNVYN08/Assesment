@@ -6,6 +6,7 @@ const WALK_SPEED = 30
 const SPRINT_SPEED = 100
 const JUMP_VELOCITY = 12
 const SENSITIVITY = 0.009
+const MAX_HEALTH = 100
 
 #bob variables
 const BOB_FREQ = 0.4
@@ -91,6 +92,7 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
+
 
 
 func _headbob(time) -> Vector3:

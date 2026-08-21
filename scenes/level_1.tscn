@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dgyavkbdx8fe7" path="res://enemy_test_2.tscn" id="5_fcfvj"]
 [ext_resource type="Shader" uid="uid://xxqm8pxqyg1q" path="res://scripts/glass.gdshader" id="6_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://xy4ygqe2gq0x" path="res://player.tscn" id="7_pa8r4"]
+[ext_resource type="Texture2D" uid="uid://dy7aipc77g2q5" path="res://scenes/Circle_Crosshair8.png" id="8_15mv3"]
+[ext_resource type="Texture2D" uid="uid://c6pyq75hd8nu2" path="res://Rectangle 2.png" id="9_e3sih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nkto"]
 shader = ExtResource("1_5xbjy")
@@ -126,6 +128,8 @@ shader_parameter/refraction_strength = 0.5
 shader_parameter/scatter_strength = 0.5
 shader_parameter/tile_size = Vector2(1, 1)
 
+[sub_resource type="Theme" id="Theme_e3sih"]
+
 [node name="Node3D" type="Node3D" unique_id=1392476986]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1057590402]
@@ -179,23 +183,23 @@ navigation_mesh = SubResource("NavigationMesh_fcfvj")
 [node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1917782672 instance=ExtResource("2_bswci")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -39.31102, -22.573105, -0.32043386)
 
-[node name="CharacterBody3D" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1157218808 instance=ExtResource("5_fcfvj")]
+[node name="enemy" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1157218808 instance=ExtResource("5_fcfvj")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -38.59337, -22.573112, -255.18385)
 player_path = NodePath("../../Player")
 
-[node name="CharacterBody3D2" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1477021324 instance=ExtResource("5_fcfvj")]
+[node name="enemy2" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1477021324 instance=ExtResource("5_fcfvj")]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 1, -77.18674, 20.751648, -355.10226)
 player_path = NodePath("../../Player")
 
-[node name="CharacterBody3D3" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1979367120 instance=ExtResource("5_fcfvj")]
+[node name="enemy3" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1979367120 instance=ExtResource("5_fcfvj")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -38.59337, 2.1139984, -255.18385)
 player_path = NodePath("../../Player")
 
-[node name="CharacterBody3D4" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=2042802236 instance=ExtResource("5_fcfvj")]
+[node name="enemy4" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=2042802236 instance=ExtResource("5_fcfvj")]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 1, -77.18674, 32.8956, -356.17984)
 player_path = NodePath("../../Player")
 
-[node name="CharacterBody3D5" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1125843234 instance=ExtResource("5_fcfvj")]
+[node name="enemy5" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1125843234 instance=ExtResource("5_fcfvj")]
 transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 1, -115.78009, 19.10991, -570.1912)
 player_path = NodePath("../../Player")
 
@@ -215,6 +219,53 @@ transform = Transform3D(-9.360563e-07, 0, 1.6521951, 0, 6.7347937, 0, -21.414473
 use_collision = true
 size = Vector3(7.2958684, 16.32228, 13.359375)
 material = SubResource("ShaderMaterial_15mv3")
+
+[node name="CircleCrosshair8" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=816271709]
+position = Vector2(883.1875, -136)
+scale = Vector2(0.09813903, 0.10923402)
+texture = ExtResource("8_15mv3")
+
+[node name="Rectangle2" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1876205346]
+position = Vector2(74, 218.00002)
+scale = Vector2(0.19466637, 0.178953)
+texture = ExtResource("9_e3sih")
+
+[node name="healthMax" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1985502139]
+anchors_preset = -1
+anchor_right = 0.77500004
+anchor_bottom = 0.70000005
+offset_left = 80.0
+offset_top = 224.0
+offset_right = -51.22
+offset_bottom = 150.4
+scale = Vector2(0.18792666, 0.20481406)
+theme_override_colors/font_color = Color(0.51007515, 0.51007515, 0.51007515, 1)
+theme_override_font_sizes/font_size = 88
+text = "100"
+
+[node name="health" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1635494155]
+offset_left = 38.0
+offset_top = 186.0
+offset_right = 285.0
+offset_bottom = 383.0
+scale = Vector2(0.18792666, 0.20481406)
+theme = SubResource("Theme_e3sih")
+theme_override_colors/font_color = Color(0.64705884, 1, 0.5686275, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 144
+
+[node name="healthSlash" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1129606224]
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 0.05
+offset_left = 94.00002
+offset_top = 199.99998
+offset_right = 140.0
+offset_bottom = 457.00003
+rotation = 0.6908717
+scale = Vector2(0.18792664, 0.20481406)
+theme_override_font_sizes/font_size = 192
+text = "/"
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=628328961 instance=ExtResource("7_pa8r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.840073, 0, 0)
