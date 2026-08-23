@@ -37,7 +37,7 @@ size = Vector2(2, 2)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
-radius = 0.73095703
+radius = 0.52001953
 height = 2.0961914
 
 [node name="Player" type="CharacterBody3D" unique_id=628328961]
@@ -60,6 +60,7 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dqkch")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Camera3D" unique_id=755001747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0037468076, 0.0066141486, 0.0036311448)
 mesh = SubResource("QuadMesh_fjrip")
 
 [node name="Sketchfab_Scene" parent="Node3D/Camera3D" unique_id=775442374 instance=ExtResource("5_sweqy")]
@@ -78,3 +79,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015829677, 0)
 shape = SubResource("CapsuleShape3D_dqkch")
 
 [node name="DashTimer" type="Timer" parent="." unique_id=865356934]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

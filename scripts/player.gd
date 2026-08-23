@@ -12,6 +12,7 @@ const MAX_HEALTH = 100
 const BOB_FREQ = 0.4
 const BOB_AMP = 0.15
 var t_bob = 0
+var damage = false
 
 #fov variables
 const BASE_FOV = 75.0
@@ -100,3 +101,12 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("enemy"):
+		damage == true
+		queue_free()
+		print (damage)
+		
+	pass # Replace with function body.
