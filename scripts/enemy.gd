@@ -2,9 +2,10 @@ extends CharacterBody3D
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
+
 @export var SPEED = 25
 @export var player_path: NodePath
-@export var health = 2
+@export var HEALTH = 2
 @export var gravity = 20
 
 var player: Node3D
@@ -27,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_3d_enemy_hit(dam: Variant) -> void:
-	health -=dam
-	if health <= 0:
+	HEALTH -=dam
+	if HEALTH <= 0:
 		queue_free()
 	pass # Replace with function body.

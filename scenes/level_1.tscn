@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://xxqm8pxqyg1q" path="res://scripts/glass.gdshader" id="6_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://xy4ygqe2gq0x" path="res://player.tscn" id="7_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://dy7aipc77g2q5" path="res://scenes/Circle_Crosshair8.png" id="8_15mv3"]
+[ext_resource type="Script" uid="uid://f4ert8ljfgnn" path="res://scenes/health.gd" id="9_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://c6pyq75hd8nu2" path="res://Rectangle 2.png" id="9_e3sih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nkto"]
@@ -180,7 +181,7 @@ material = SubResource("ShaderMaterial_pa8r4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19379807, 0, -0.4359932)
 navigation_mesh = SubResource("NavigationMesh_fcfvj")
 
-[node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1917782672 instance=ExtResource("2_bswci")]
+[node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1666120620 instance=ExtResource("2_bswci")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -39.31102, -22.573105, -0.32043386)
 
 [node name="enemy" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1157218808 instance=ExtResource("5_fcfvj")]
@@ -215,7 +216,7 @@ size = Vector3(0.025276303, 0.4039538, 0.12573242)
 material = SubResource("ShaderMaterial_15mv3")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=2071639903]
-transform = Transform3D(-9.360563e-07, 0, 1.6521951, 0, 6.7347937, 0, -21.414473, 0, -7.221974e-08, -179.48889, 53.826237, -390.54373)
+transform = Transform3D(-9.360563e-07, 0, 1.6521951, 0, 6.7347937, 0, -21.414473, 0, -7.221974e-08, -166.36996, 53.826237, -390.54373)
 use_collision = true
 size = Vector3(7.2958684, 16.32228, 13.359375)
 material = SubResource("ShaderMaterial_15mv3")
@@ -228,6 +229,11 @@ texture = ExtResource("8_15mv3")
 [node name="Rectangle2" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1876205346]
 position = Vector2(74, 218.00002)
 scale = Vector2(0.19466637, 0.178953)
+texture = ExtResource("9_e3sih")
+
+[node name="Rectangle2" type="Sprite2D" parent="SubViewportContainer/SubViewport/Rectangle2" unique_id=1969589180]
+position = Vector2(-20.547966, -1017.02686)
+scale = Vector2(0.8824734, 0.53815925)
 texture = ExtResource("9_e3sih")
 
 [node name="healthMax" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1985502139]
@@ -253,6 +259,7 @@ theme = SubResource("Theme_e3sih")
 theme_override_colors/font_color = Color(0.64705884, 1, 0.5686275, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 144
+script = ExtResource("9_2y5yt")
 
 [node name="healthSlash" type="Label" parent="SubViewportContainer/SubViewport" unique_id=1129606224]
 anchors_preset = -1

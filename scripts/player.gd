@@ -3,8 +3,8 @@ extends CharacterBody3D
 var speed
 const DASH_SPEED = 60
 const WALK_SPEED = 30
-const SPRINT_SPEED = 100
-const JUMP_VELOCITY = 12
+const SPRINT_SPEED = 600
+const JUMP_VELOCITY = 50
 const SENSITIVITY = 0.009
 const MAX_HEALTH = 100
 
@@ -26,12 +26,17 @@ var weight = 60
 var bullet = load("res://scenes/bullet.tscn")
 var instance
 
+#  Health 
+var max_health = 100
+@export var health  = 0
+
 @onready var head =$Node3D
 @onready var camera = $Node3D/Camera3D
 @onready var gun_animation = $Node3D/Camera3D/Sketchfab_Scene/AnimationPlayer
 @onready var gun_ray = $Node3D/Camera3D/Sketchfab_Scene/RayCast3D
 
 func _ready():
+	health = max_health
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	global.player = self
 
@@ -106,7 +111,8 @@ func _headbob(time) -> Vector3:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):
 		damage == true
-		queue_free()
+		health -= 5
+		await get_tree().create_timer(.2).timeout
 		print (damage)
 		
 	pass # Replace with function body.
