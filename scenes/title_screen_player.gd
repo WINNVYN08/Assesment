@@ -3,7 +3,7 @@ extends CharacterBody3D
 var speed = 0
 const DASH_SPEED = 60
 const WALK_SPEED = 30
-const SPRINT_SPEED = 10
+const SPRINT_SPEED = 40
 const JUMP_VELOCITY = 15
 const SENSITIVITY = 0.009
 const MAX_HEALTH = 100
@@ -20,7 +20,7 @@ const FOV_CHANGE = 0.5
 var can_dash = true
 
 # Gravity variable
-var gravity = 20
+var gravity = -0.1
 var weight = 60
 
 var bullet = load("res://scenes/bullet.tscn")
@@ -38,15 +38,14 @@ var max_health = 100
 
 func _ready():
 	health = max_health
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	global.player = self
 
 
 #Mouse control code
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		head.rotate_y(-event.relative.x * SENSITIVITY /8)
+		camera.rotate_x(-event.relative.y * SENSITIVITY/8)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
@@ -59,8 +58,8 @@ func _physics_process(delta):
 	#player code handling shooting
 	if Input.is_action_just_pressed("shoot"):
 		if !gun_animation.is_playing():
-			gun_animation.play("shoot")
 			$LaserShoot.play()	
+			gun_animation.play("shoot")
 			instance = bullet.instantiate()
 			instance.position = gun_ray.global_position
 			instance.transform.basis = gun_ray.global_transform.basis
@@ -119,9 +118,9 @@ func _headbob(time) -> Vector3:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):
-		$HitHurt.play()
 		damage == true
 		health -= 5
+		$HitHurt.play()
 		await get_tree().create_timer(.2).timeout
 		print (damage)
 	

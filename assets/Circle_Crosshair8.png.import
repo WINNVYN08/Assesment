@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l5hkiy18o6af"
-path="res://.godot/imported/Rectangle 3.png-43db91857f141c7345a5cb6f9f3b4e2b.ctex"
+uid="uid://dy7aipc77g2q5"
+path="res://.godot/imported/Circle_Crosshair8.png-d812ecdef9bef1bb47639307bdfc5620.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Untitled (2)/Rectangle 3.png"
-dest_files=["res://.godot/imported/Rectangle 3.png-43db91857f141c7345a5cb6f9f3b4e2b.ctex"]
+source_file="res://assets/Circle_Crosshair8.png"
+dest_files=["res://.godot/imported/Circle_Crosshair8.png-d812ecdef9bef1bb47639307bdfc5620.ctex"]
 
 [params]
 

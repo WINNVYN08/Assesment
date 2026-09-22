@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7owtf2r3klwe"]
 
-[ext_resource type="PackedScene" uid="uid://c2xggcketgp7y" path="res://assets/lugermorph_team_fortress_2.glb" id="1_vk1bi"]
+[ext_resource type="PackedScene" uid="uid://c2xggcketgp7y" path="res://assets/lugermorph_team_fortress_2.glb" id="1_x77fm"]
 
 [sub_resource type="Animation" id="Animation_dk5gl"]
 length = 0.001
@@ -87,7 +87,7 @@ _data = {
 &"shoot": SubResource("Animation_vk1bi")
 }
 
-[node name="Sketchfab_Scene" unique_id=775442374 instance=ExtResource("1_vk1bi")]
+[node name="Sketchfab_Scene" unique_id=775442374 instance=ExtResource("1_x77fm")]
 
 [node name="Object_7" parent="Sketchfab_model/root/GLTF_SceneRootNode/c_ttg_max_gun_qc_skeleton_2/GLTF_created_0/Skeleton3D" parent_id_path=PackedInt32Array(466325823) index="0" unique_id=1557471426]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
@@ -98,5 +98,5 @@ root_node = NodePath("../Sketchfab_model/root/GLTF_SceneRootNode/c_ttg_max_gun_q
 libraries/ = SubResource("AnimationLibrary_dk5gl")
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="2" unique_id=814043853]
-transform = Transform3D(49.95845, 2.0373287, 0.050097704, 2.0372205, -49.958378, 0.10448542, 0.054313183, -0.102356434, -49.999866, 0, 7.847515, 14.30433)
+transform = Transform3D(50, -4.37114e-06, -4.3711393e-06, -4.371139e-06, -50.000015, 0, -4.371139e-06, 3.8213722e-13, -50.000004, 0, 7.847515, 14.30433)
 target_position = Vector3(0, 0, -1)
