@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bs3wvmbjjtfxw"]
 
-[ext_resource type="PackedScene" uid="uid://xy4ygqe2gq0x" path="res://scenes/player.tscn" id="1_2venv"]
 [ext_resource type="Shader" uid="uid://dp656hy7jeejw" path="res://scripts/water.gdshader" id="1_j6w7d"]
 [ext_resource type="Shader" uid="uid://xxqm8pxqyg1q" path="res://scripts/glass.gdshader" id="2_paw1w"]
+[ext_resource type="PackedScene" uid="uid://dgyavkbdx8fe7" path="res://scenes/enemy_test_2.tscn" id="4_tmr53"]
 [ext_resource type="PackedScene" uid="uid://xy4ygqe2gq0x" path="res://scenes/player.tscn" id="4_x4b8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paw1w"]
@@ -180,9 +180,6 @@ collision_layer = 7
 collision_mask = 7
 size = Vector3(200, 10, 200)
 
-[node name="Node3D" parent="SubViewportContainer/SubViewport" unique_id=962017556 instance=ExtResource("1_2venv")]
-transform = Transform3D(0.9999102, -0.01340373, 0, 0.013403728, 0.9999103, 0, 0, 0, 1.0000001, 0, 20, 0)
-
 [node name="CSGBox3D5" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=1668710732]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -50)
 use_collision = true
@@ -210,14 +207,14 @@ size = Vector3(5, 10, 10)
 material = SubResource("ShaderMaterial_paw1w")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="SubViewportContainer/SubViewport" unique_id=1478276704]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.626244, 7.31686, -0.56840086)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.75866, 7.31686, -0.56840086)
 radius = 9.222
 radial_segments = 50
 rings = 60
 material = SubResource("ShaderMaterial_j6w7d")
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport" unique_id=1584187272]
-transform = Transform3D(1, 0, 0, 0, 1.1533211, 0, 0, 0, 1, 1.9232635, 6.8475676, 14.911232)
+transform = Transform3D(1, 0, 0, 0, 1.1533211, 0, 0, 0, 1, 1.9232635, 6.8475676, 42.044735)
 inner_radius = 21.475
 outer_radius = 15.365
 sides = 64
@@ -233,6 +230,9 @@ collision_layer = 7
 collision_mask = 7
 size = Vector3(200, 10, 200)
 material = SubResource("ShaderMaterial_tmr53")
+
+[node name="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=1157218808 instance=ExtResource("4_tmr53")]
+transform = Transform3D(-0.05315566, 0.7957429, -0.6032973, -0.7025789, 0.39952153, 0.5888679, 0.7096178, 0.45516565, 0.5378354, 0, 27.952095, 0)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=628328961 instance=ExtResource("4_x4b8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.315817, 0)

@@ -88,6 +88,8 @@ stream = ExtResource("6_smehm")
 
 [node name="LaserShoot" type="AudioStreamPlayer" parent="." unique_id=1670347815]
 stream = ExtResource("7_ur7pv")
+volume_db = -5.045
+pitch_scale = 0.59
 
 [node name="Jump" type="AudioStreamPlayer" parent="." unique_id=2051553325]
 stream = ExtResource("8_y4r1p")

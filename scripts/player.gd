@@ -29,7 +29,6 @@ var instance
 #  Health 
 var max_health = 100
 @export var health  = 0
-
 @onready var head =$Node3D
 @onready var camera = $Node3D/Camera3D
 @onready var gun_animation = $Node3D/Camera3D/Sketchfab_Scene/AnimationPlayer
@@ -109,7 +108,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
@@ -124,8 +122,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		health -= 5
 		await get_tree().create_timer(.2).timeout
 		print (damage)
-	
-		
 	pass # Replace with function body.
 
 

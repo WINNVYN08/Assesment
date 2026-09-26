@@ -1,8 +1,6 @@
 extends CharacterBody3D
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
-
-
 @export var SPEED = 25
 @export var player_path: NodePath
 @export var HEALTH = 2
@@ -12,6 +10,7 @@ var player: Node3D
 
 func _ready() -> void:
 	player = get_node_or_null(player_path)
+
 
 func _physics_process(delta: float) -> void:
 	if player == null:

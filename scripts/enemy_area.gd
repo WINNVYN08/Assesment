@@ -13,5 +13,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func hit():
 	emit_signal("enemy_hit",damage)
