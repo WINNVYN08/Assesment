@@ -5,7 +5,7 @@ extends CharacterBody3D
 const DASH_SPEED = 60.0
 const WALK_SPEED = 30.0
 const SPRINT_SPEED = 10.0
-const JUMP_VELOCITY = 15.0
+const JUMP_VELOCITY = 10.0
 const SENSITIVITY = 0.009
 const MAX_HEALTH = 100
 
@@ -22,8 +22,8 @@ const FOV_CHANGE = 0.5
 var can_dash = true
 
 # Gravity variables.
-var gravity = 0.9
-var weight = 60.0
+var gravity = 9
+var weight = 80.0
 
 # Load the bullet scene so bullets can be created when the player shoots.
 var bullet = load("res://scenes/bullet.tscn")
@@ -90,7 +90,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Check if the player presses jump while standing on the floor.
-	if Input.is_action_just_pressed("jump"): #and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$Jump.play()
 
 		velocity.y = JUMP_VELOCITY - abs(velocity.x) * 0.1
