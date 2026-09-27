@@ -205,6 +205,26 @@ player_path = NodePath("../../Player")
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 1, -77.18674, 32.8956, -356.17984)
 player_path = NodePath("../../Player")
 
+[node name="enemy5" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1849272901 instance=ExtResource("5_fcfvj")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 166.35335, 25.372108, -551.2318)
+player_path = NodePath("../../Player")
+
+[node name="enemy6" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1591444118 instance=ExtResource("5_fcfvj")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -246.12361, 19.15297, -556.3819)
+player_path = NodePath("../../Player")
+
+[node name="enemy7" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1922672090 instance=ExtResource("5_fcfvj")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -322.61017, 29.877357, -511.69595)
+player_path = NodePath("../../Player")
+
+[node name="enemy8" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1903899077 instance=ExtResource("5_fcfvj")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -268.7296, 212.77788, -396.76382)
+player_path = NodePath("../../Player")
+
+[node name="enemy9" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1375373644 instance=ExtResource("5_fcfvj")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -38.59337, -22.573112, -558.1032)
+player_path = NodePath("../../Player")
+
 [node name="CSGBox3D7" type="CSGBox3D" parent="SubViewportContainer/SubViewport" unique_id=704966852]
 transform = Transform3D(18.630632, 0, 0, 0, 5.573414, 0, 0, 0, 1.3632654, -29.565481, 173.6906, -303.59094)
 size = Vector3(9.3125305, 29.75299, 10)
