@@ -135,7 +135,9 @@ shader_parameter/tile_size = Vector2(1, 1)
 [sub_resource type="Theme" id="Theme_e3sih"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2y5yt"]
-custom_solver_bias = 0.11
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3sih"]
+size = Vector3(1, 258.2096, 333.23334)
 
 [node name="Node3D" type="Node3D" unique_id=1392476986]
 
@@ -184,7 +186,7 @@ material = SubResource("ShaderMaterial_pa8r4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19379807, 0, -0.4359932)
 navigation_mesh = SubResource("NavigationMesh_fcfvj")
 
-[node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1666120620 instance=ExtResource("2_bswci")]
+[node name="level" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=635685185 instance=ExtResource("2_bswci")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -39.31102, -22.573105, -0.32043386)
 
 [node name="enemy" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1157218808 instance=ExtResource("5_fcfvj")]
@@ -280,9 +282,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.840073, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -43.581528, 0)
 shape = SubResource("WorldBoundaryShape3D_2y5yt")
 
-[node name="CircleCrosshair8" type="Sprite2D" parent="killFloor" unique_id=1735652182]
+[node name="CircleCrosshair9" type="Sprite2D" parent="." unique_id=1735652182]
 position = Vector2(976, 560)
 scale = Vector2(0.41111112, 0.41111112)
 texture = ExtResource("8_15mv3")
 
-[connection signal="area_entered" from="killFloor" to="SubViewportContainer/SubViewport/Player" method="_on_kill_floor_area_entered"]
+[node name="end_point" type="Area3D" parent="CircleCrosshair9" unique_id=1455548684]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CircleCrosshair9/end_point" unique_id=1030025312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200.54811, -451.6656)
+shape = SubResource("BoxShape3D_e3sih")
+
+[connection signal="area_entered" from="CircleCrosshair9/end_point" to="SubViewportContainer/SubViewport/Player" method="_on_end_point_area_entered"]

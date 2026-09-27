@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wxss0l1fhbgm"]
 
 [ext_resource type="Shader" uid="uid://cl1su1jnas0jt" path="res://scripts/sky.gdshader" id="1_05l2w"]
+[ext_resource type="Script" uid="uid://ngticjsu0rh4" path="res://scenes/title_screen.gd" id="1_e54dn"]
 [ext_resource type="Script" uid="uid://bfosh8k8pehx6" path="res://scenes/title_screen_player.gd" id="3_dc4i4"]
 [ext_resource type="Shader" uid="uid://dp656hy7jeejw" path="res://scripts/water.gdshader" id="3_tpml5"]
 [ext_resource type="PackedScene" uid="uid://xy4ygqe2gq0x" path="res://scenes/player.tscn" id="4_jqemp"]
@@ -108,6 +109,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 font_size = 300
 
 [node name="Node2D" type="Node2D" unique_id=1020269442]
+script = ExtResource("1_e54dn")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1059968020]
 texture_filter = 1

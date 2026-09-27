@@ -22,7 +22,7 @@ const FOV_CHANGE = 0.5
 var can_dash = true
 
 # Gravity variables.
-var gravity = 20.0
+var gravity = 0.9
 var weight = 60.0
 
 # Load the bullet scene so bullets can be created when the player shoots.
@@ -54,8 +54,14 @@ func _ready():
 # Handle mouse movement to control the player's camera.
 func _unhandled_input(event):
 	# Check if the input event was caused by mouse movement.
+	if event is InputEventMouseMotion:
+		# Rotate the player's head from left to right.
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+
+		# Rotate the camera up and down.
+		camera.rotate_x(-event.relative.y * SENSITIVITY )
+
+		# Limit how far the player can look up and down.
 		camera.rotation.x = clamp(
 			camera.rotation.x,
 			deg_to_rad(-90),
@@ -84,7 +90,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Check if the player presses jump while standing on the floor.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"): #and is_on_floor():
 		$Jump.play()
 
 		velocity.y = JUMP_VELOCITY - abs(velocity.x) * 0.1
@@ -183,3 +189,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 # Detect when the player enters the kill floor.
 func _on_kill_floor_area_entered(area: Area3D) -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_end_point_area_entered(area: Area3D) -> void:
+	get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
+	pass # Replace with function body.
